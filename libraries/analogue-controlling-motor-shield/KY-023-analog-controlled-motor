@@ -1,0 +1,52 @@
+#include <AFMotor.h> // https://github.com/adafruit/Adafruit-Motor-Shield-library
+// connect the y axis pin to A1, 5v to 5v, and Gnd to Gnd.
+AF_DCMotor motor(1); // using motor on port 1
+
+void setup() {
+  // initialize serial communication at 9600 bits per second:
+  Serial.begin(9600);
+   motor.setSpeed(255); // motor speed is between 0-255, this little blurp is to get the motor ready
+   motor.run(RELEASE); // this releases the motor so it's not doing anything
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+ // int sensorValue2 = analogRead(A0); //pin A0 and A1 are connected to the x and y axis on the ky-023
+ // analog value is between 0-1024, 500 being in the center
+// if you push up, the motor will go forward and the speed will depend on how far you push up
+// some KY-023's may have different values when in the center, ranging between 499-515
+// serial println will help figure out the values. 
+    
+    
+    if (analogRead(A1) > 515)
+  {
+   motor.run(FORWARD); // motor turns forward
+   int sensorValue = analogRead(A1); 
+   float val2 = (sensorValue / 2) - 253; // converting analog input to usable numbers for motor
+   motor.setSpeed(val2); 
+  // Serial.println(val2);
+ //  Serial.println(sensorValue);
+   delay(10);
+  }
+  else if(analogRead(A1) < 499) // pushing down
+  {
+  motor.run(BACKWARD); // motor turns in reverse
+  int sensorValue = analogRead(A1);
+  float val3 = (sensorValue / -2) - 258;
+  motor.setSpeed(val3);
+  Serial.println(val3);
+  delay(10);
+  }
+  else 
+  {
+    motor.run(RELEASE); // motor is in the center
+  }
+
+  // read the input on analog pin 0:
+  // print out the value you read: for debugging
+//  Serial.println(sensorValue);
+//  Serial.println(sensorValue2); 
+//  delay(5);        // delay in between reads for stability
+
+
+}
