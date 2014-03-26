@@ -1,3 +1,5 @@
+I used Arduino build 23 to make this.
+
 I wanted to create a code that would allow lady ada's motor shield to be used with a KY-023 analog joystick controller. 
 The joystick has a x axis and a y axis. I only used the Y axis to move forward and backward using the joystick. 
 the x axis is not being used in this demo. In the future I would like to use the x axis to control a servo for steering. 
