@@ -9,4 +9,4 @@ using some math i was able to create this effect.
 this will eventually be a building block to create a wireless RC car. 
 
 send ques to my email
-nathansbernard@hotmail.com
+watch81@gmx.com
