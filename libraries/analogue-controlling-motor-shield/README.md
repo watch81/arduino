@@ -6,7 +6,9 @@ the x axis is not being used in this demo. In the future I would like to use the
 The joystick's resistance is 500 in the center, 1024 when pushed all the way up and 0 when pushed all the way down.
 I wanted the motor value to be 255 when pushing the joystick to 1024, the motor value to be 255 when pushing the joystick to 0, and I wanted the motor value to be 0 when leaving the joystick at 500.   
 using some math i was able to create this effect. 
-so this will eventually be a building block to create a wireless RC car. 
+so this will eventually be a building block to create a wireless RC car.
+
+Edit: the first one is using float() to calculate values and (2) is using map(). float() uses more processing power so map() is a better choice.
 
 send ques to my email
 watch81@gmx.com
